@@ -11,4 +11,5 @@ public interface ActivityServiceInterface {
 	public Activity updateActivity(Integer activityId,Activity activity);
 	public void DeleteActivity(Integer activityId);
 	public List<Activity> viewAllactivity();
+	
 }

@@ -12,4 +12,7 @@ public interface CategoryServiceInterface {
 	public Category updateCategory(Integer categoryId,Category category);
 	public void DeleteCategory(Integer categoryId);
 	public List<Category> viewAllcategory();
+	
+	//===============
+	public Category addCategoryWithActivity(Category category,Integer activityId);
 }

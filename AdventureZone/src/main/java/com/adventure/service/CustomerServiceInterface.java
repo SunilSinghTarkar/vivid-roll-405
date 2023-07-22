@@ -10,7 +10,7 @@ public interface CustomerServiceInterface {
 	
 	public Customer rsegisterCustomer(Customer customer);
 	public Customer updateCustomer(Integer customerId,Customer customer);
-	public void DeleteCustomer(Integer customerId);
+	public Customer DeleteCustomer(Integer customerId);
 	public List<Customer> viewAllcustomer();
 	public Customer viewCustomerById(Integer customerId);
 	public Customer validateCustomer(String username,String password);

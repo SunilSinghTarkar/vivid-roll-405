@@ -43,7 +43,6 @@ public class ActivityServiceImplements implements ActivityServiceInterface {
 		Activity activity = activityRepositry.findById(activityId).orElseThrow(() -> new NoRecordFoundException("No record found with the given id "+activityId));
 		if(activity.isDeleted()==true) throw new CustomerException("Activity is already deleted");
 		activity.setDeleted(true);
-		
 	}
 
 	@Override

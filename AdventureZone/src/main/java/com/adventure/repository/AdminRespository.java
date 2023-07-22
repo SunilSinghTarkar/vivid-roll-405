@@ -10,6 +10,6 @@ import com.adventure.model.Customer;
 
 public interface AdminRespository extends JpaRepository<Admin, Integer> {
 	
-	public Optional<Admin> FindByEmail(String email);
+	public Optional<Admin> findByEmail(String email);
 
 }

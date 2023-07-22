@@ -11,5 +11,4 @@ public interface AdminServiceInterface {
 	public void DeleteAdmin(Integer adminId);
 	public List<Admin> viewAlladmin();
 	
-
 }

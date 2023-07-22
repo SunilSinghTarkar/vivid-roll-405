@@ -42,7 +42,7 @@ public class AppConfig {
 			});
         }) .authorizeHttpRequests(auth -> auth.requestMatchers(HttpMethod.POST , "/users").permitAll()
 				.requestMatchers("/swagger-ui*/**","/v3/api-docs/**").permitAll()
-				.requestMatchers("/logini").hasAnyRole("ADMIN" , "USER")
+				.requestMatchers("/logini").hasAnyRole("ADMIN","USER")
 				.requestMatchers("/hello").hasRole("ADMIN")
 				.requestMatchers(HttpMethod.POST, "/movies").hasRole("ADMIN")
 				.anyRequest().authenticated())

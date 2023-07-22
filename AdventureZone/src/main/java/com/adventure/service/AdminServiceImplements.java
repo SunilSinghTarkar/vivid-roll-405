@@ -23,7 +23,7 @@ public class AdminServiceImplements implements AdminServiceInterface {
 	@Override
 	public Admin rsegisterAdmin(Admin admin) {
 		if(admin==null) throw new CustomerException("The Admin you have provided is null");
-		Optional<Admin> ad = adminRepositry.FindByEmail(admin.getEmail());
+		Optional<Admin> ad = adminRepositry.findByEmail(admin.getEmail());
 		if(ad.isPresent()) throw new CustomerException("Admin already exists");
 		return adminRepositry.save(admin);
 	}

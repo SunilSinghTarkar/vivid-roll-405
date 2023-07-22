@@ -9,10 +9,12 @@ import org.springframework.stereotype.Service;
 import com.adventure.exception.AdminException;
 import com.adventure.exception.CustomerException;
 import com.adventure.exception.NoRecordFoundException;
+import com.adventure.model.Activity;
 import com.adventure.model.Category;
-import com.adventure.model.Ticket;
-import com.adventure.repository.AdminRespository;
+import com.adventure.repository.ActivityRespository;
 import com.adventure.repository.CategoryRespository;
+
+import jakarta.validation.Valid;
 
 
 @Service
@@ -20,6 +22,10 @@ public class CategoryServiceImplements implements CategoryServiceInterface {
 
 	@Autowired
 	private CategoryRespository categoryRepositry;
+	
+	@Autowired
+	private ActivityRespository activityRepositry;
+	
 	
 	@Override
 	public Category addCategory(Category category) {
@@ -52,6 +58,22 @@ public class CategoryServiceImplements implements CategoryServiceInterface {
 		List<Category> ticket = categoryRepositry.findAll();
 		if(ticket.isEmpty()) throw new NoRecordFoundException("Category list is empty");
 		return ticket;
+	}
+	
+//	=========================
+	@Override
+	public Category addCategoryWithActivity(@Valid Category category, Integer activityId) {
+		Optional<Activity> ac= activityRepositry.findById(activityId);
+		if(ac==null) throw new CustomerException("The Activity you have provided is null");
+		
+		if(category==null) throw new CustomerException("The ticket you have provided is null");
+		Optional<Category> cat = categoryRepositry.findById(category.getCategoryId());
+		if(cat.isPresent()) throw new CustomerException("Category already exists");
+		
+		category.getActivities().add(ac.get());
+		
+		return categoryRepositry.save(category);
+		
 	}
 
 }
