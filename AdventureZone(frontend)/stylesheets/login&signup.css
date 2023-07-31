@@ -5,7 +5,7 @@
 	box-sizing: border-box;
 }
 
-body {
+#containerSignUp {
 	background: #f6f5f7;
 	display: flex;
 	justify-content: center;
@@ -13,7 +13,7 @@ body {
 	flex-direction: column;
 	font-family: 'Montserrat', sans-serif;
 	height: 100vh;
-	margin: -20px 0 50px;
+	padding-top: 100px;
 }
 
 h1 {
@@ -131,6 +131,10 @@ input {
 	z-index: 5;
 	animation: show 0.6s;
 }
+.hoverLogOut button{
+	/* background-color: whitesmoke; */
+	color: black;
+}
 
 @keyframes show {
 	0%, 49.99% {
@@ -225,4 +229,38 @@ input {
 	height: 40px;
 	width: 40px;
     background-color: #DDDDDD;
+}
+@media only screen and (max-width: 1000px) {
+    header {
+        padding: 0 20px;
+    }
+    header .header-right .hamburger {
+        display: block;
+    }
+    header > .header-left nav {
+        margin: 0;
+        position: absolute;
+        top: -450%;
+        left: 0;
+        width: 100%;
+        height: fit-content;
+        background-color:yellow;
+        padding: 30px;
+        transition: 0.3s;
+        text-align: center;
+        z-index: -1;
+		
+    }
+    header .header-left nav.active {
+        top: 50px;
+    }
+    header .header-left nav ul {
+        display: block;
+    }
+    #upNav{
+        padding-left: 10%;
+    }
+	header .header-left nav.active {
+		top: 55px;
+	}
 }

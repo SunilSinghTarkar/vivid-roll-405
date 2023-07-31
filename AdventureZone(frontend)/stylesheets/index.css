@@ -33,9 +33,9 @@ header {
     position: fixed;
     justify-content: space-around;
     /* padding: 0 50px; */
-    background: yellow;
+    background: rgb(253, 253, 253);
     /* padding: 40px; */
-    z-index: 100;
+    z-index: 1000;
     border: 1px solid silver;
    width: 100vw;
     padding-right: 10px;
@@ -69,10 +69,14 @@ nav ul li a {
     font-size: 1.2em;
     padding-right: 10px;
     transition: 0.2s;
+    padding: 8px;
+    border-radius: 15px;
 }
 nav ul li a:hover,
 nav ul li a.active {
-    color: rgb(120, 120, 120);
+    /* color: rgb(120, 120, 120); */
+    background-color: silver;
+    
 }
 
 header .header-right {
@@ -93,11 +97,15 @@ header .header-right .hamburger div {
     background: #fff;
 }
 #upNav{
-    background-color: yellow;
     display: flex;
     justify-content: space-between;
-    
+    text-transform: uppercase;
+   
 }
+#upNav> p{
+    vertical-align: middle;
+}
+
 #upNav> button{
     color: #fff;
     background-color: red;
@@ -111,10 +119,11 @@ header .header-right .hamburger div {
 }
 #user{
     display: flex;
-    min-width: 80px;
+    width: 50px;
     justify-content: space-between;
     align-items: center;
 }
+
 #user p{
     font-size: 0.8em;
     margin-left: 10px;
@@ -275,6 +284,67 @@ width: 100%;
     padding: 2px;
     border-radius: 5px;
     }
+
+    .hoverLogOut {
+        display: none;
+        position: absolute;
+        top: 58px;
+        right: 10px;
+        background-color: whitesmoke;
+        padding: 10px;
+        width: 150px;
+        border: 0.5px solid black;
+        border-top: 0 ;
+        /* z-index: 100000000; */
+    } 
+
+    #user:hover + .hoverLogOut,
+    .hoverLogOut:hover {
+        display: block;
+    }
+    .hoverLogOut button{
+        display: block;
+        width: 100%;
+        border: 0;
+        padding: 5px;
+        background-color: transparent;
+    }
+    .hoverLogOut button:hover{
+        background-color: silver;
+    }
+    .hoverLogOut{
+z-index: 100000;
+    }
+    #upNav p{
+        align-self: center;
+    }
+    button {
+        border-radius: 20px;
+        border: 1px solid #20a87e;
+        background-color: #20a87e;
+        color: black;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 12px 45px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: transform 80ms ease-in;
+    }
+    
+    button:active {
+        transform: scale(0.95);
+    }
+    
+    button:focus {
+        outline: none;
+    }
+    input {
+        background-color: #eee;
+        border: none;
+        padding: 12px 15px;
+        margin: 8px 0;
+        width: 100%;
+    }
 @media only screen and (max-width: 1000px) {
     header {
         padding: 0 20px;
@@ -296,7 +366,7 @@ width: 100%;
         z-index: -1;
     }
     header .header-left nav.active {
-        top: 50px;
+        top: 55px;
     }
     header .header-left nav ul {
         display: block;
@@ -304,6 +374,10 @@ width: 100%;
     #upNav{
         padding-left: 10%;
     }
+    .offerSec{
+        grid-template-columns: repeat(2,1fr);
+    }
+   
 }
 
 @media only screen and (max-width: 500px) {
@@ -342,5 +416,10 @@ width: 100%;
         .childFoot>div:nth-child(3) input{
             width: 50vw;
             }
-    
+            .exploreAdv{
+                grid-template-columns: repeat(1,80vw);
+                margin: auto;
+                justify-content: center;
+                  
+               }
 }

@@ -5,62 +5,68 @@
     <title>SignUp and Login</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/AdventureZone(frontend)/stylesheets/login&signup.css">
+
     <link rel="stylesheet" href="/AdventureZone(frontend)/stylesheets/index.css">
+    <link rel="stylesheet" href="/AdventureZone(frontend)/stylesheets/login&signup.css">
     <!-- <link rel="icon" href="https://www.anthropologie.com/favicon.ico"> -->
 </head>
-
 <body>
-    <header>
+  <header>
+    <div class="header-left">
+        <div class="logo">
+           <a href="/AdventureZone(frontend)/index.html"><img src="/AdventureZone(frontend)/Images/adventureZone.png" alt=""></a> 
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <!-- <a href="" class="active"></a> -->
+                </li>
+                <li>
+                    <a href="/AdventureZone(frontend)/html/booking.html">Tickets</a>
+                </li>
+                <li>
+                    <a href="">Offers</a>
+                </li>
+                <li>
+                    <a href="/AdventureZone(frontend)/html/about.html">About</a>
+                </li>
+                <li>
+                    <a href="">Know more</a>
+                </li>
+                <li>
+                    <a href="">Help</a>
+                </li>
+                
+            </ul>
+           
+        </nav>
+       
+       
+    </div>
+    <div class="header-right">
         
-        <div class="header-left">
-            <div class="logo">
-               <a href="/AdventureZone(frontend)/index.html"><img src="./Images/adventureZoneBW.png" alt=""></a> 
-            </div>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="" class="active"></a>
-                    </li>
-                    <li>
-                        <a href="/AdventureZone(frontend)/html/booking.html">Tickets</a>
-                    </li>
-                    <li>
-                        <a href="">Offers</a>
-                    </li>
-                    <li>
-                        <a href="">About</a>
-                    </li>
-                    <li>
-                        <a href="">Know more</a>
-                    </li>
-                    <li>
-                        <a href="">Help</a>
-                    </li>
-                    
-                </ul>
-               
-            </nav>
-           
-           
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-        <div class="header-right">
+    </div>
+    <div id="upNav">
+        <div id="user">
+            <svg width="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="9" r="3" stroke="#1C274C" stroke-width="1.5"></circle> <path d="M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
             
-            <div class="hamburger">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
         </div>
-        <div id="upNav">
-            <button><a href="/AdventureZone(frontend)/html/signup&signIn.html">Sign In</a> </button>
-            <button><a href="/AdventureZone(frontend)/html/signup&signIn.html">Register</a> </button>
-            <!-- <div id="user">
-                <svg width="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="9" r="3" stroke="#1C274C" stroke-width="1.5"></circle> <path d="M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
-                <p>Suraj Deosarkar</p>
-            </div> -->
-        </div>
-    </header>
+        <p id="userNameLogIn">Suraj</p>
+    </div>
+    <div class="hoverLogOut">
+        <button id="loginBtn">Log In</button>
+        <button id="logoutBtn">Log out</button>
+        <button id="registerBtn">Register</button>
+    </div>
+</header>
+
+  
+    <div id="containerSignUp">
     <div class="container" id="container">
         <div class="form-container sign-up-container">
 
@@ -115,6 +121,7 @@
             </div>
         </div>
     </div>
+  </div>
     <footer>
         <div class="parentFoot">
             
@@ -158,9 +165,9 @@
 
               </div>
               <div>
-                <br>
-                <p>Any Queries</p>
-                <br>
+               
+                <p>ANY QUERIES</p>
+         
                 <input id="cusName" placeholder="Your Good Name">
                 <input id="cusEmail" placeholder="Your email">
                 <input id="cusPhone" placeholder="You Phone No.">
@@ -173,171 +180,9 @@
 
 
 </body>
-
-</html>
-<script src="/AdventureZone(frontend)/scripts/index.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
-<script type="text/javascript">
-
-    // let storedData = JSON.parse(localStorage.getItem("details")) || []
-
-
-   //SignUp and signIn main form buttons
-  const signUpButton = document.getElementById('signUp');
-  const signInButton = document.getElementById('signIn');
-  const container = document.getElementById('container');
+<script src="/AdventureZone(frontend)/scripts/signup&signIn.js"></script>
+<script src="/AdventureZone(frontend)/scripts/index.js"></script>
+</html>
 
 
-
-  // Panel swapping listner for signup and signIn
-  signUpButton.addEventListener('click', () => {
-    container.classList.add("right-panel-active");
-  });
-  signInButton.addEventListener('click', () => {
-    container.classList.remove("right-panel-active");
-  });
-
-
- //             <!--  S I G N U P     C O D E    S T A R T' S    F R O M    H E R E -->
-
-
-  // SignUp form input values
-  let signupForm = document.getElementById("form1");
-  let nameInp = document.getElementById("name");
-  let emailInp = document.getElementById("email");
-  let passwordInp = document.getElementById("password")
-  let mobileInp = document.getElementById("mobNumber")
-  let ageInp = document.getElementById("age")
-  let addressInp = document.getElementById("address")
-
-
-
-
-// Random id generator for Abstract User class in java
-  function generateRandomID(length) {
-    const characters = '0123456789';
-    let randomID = '';
-
-    for (let i = 0; i < length; i++) {
-      const randomIndex = Math.floor(Math.random() * characters.length);
-      randomID += characters[randomIndex];
-    }
-
-    return randomID;
-  }
-
-
-
-
-  // Function to add new customer to the database using the signup form
-  const signUp = document.getElementById('button2');
-  signupForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    addcustomer();
-  })
-
-
-  async function addcustomer() {
-    console.log("Click")
-    let obj = {
-      "userId": generateRandomID(5),
-      "username": nameInp.value,
-      "password": passwordInp.value,
-      "address": addressInp.value,
-      "mobNumber": mobileInp.value,
-      "email": emailInp.value,
-      "createdDate": "",
-      "updatedDT": "",
-      "deleteDT": "",
-      "role": "USER",
-      "customerId": 0,
-      "age": ageInp.value,
-      "deleted": false
-    };
-
-    let fetchedData = await fetch('https://adventure-zone-database-production.up.railway.app/adventureZone/addCustomer', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(obj)
-    });
-
-    if (fetchedData.ok) {
-      alert('Customer registered Successfully');
-      window.location.reload();
-    }
-  }
-
-
-  //                      <!--  S I G N U I N    C O D E    S T A R T' S    F R O M    H E R E -->
-
-
- // Function to login using the username and password and set the cookies of jwt token
-  let loginForm = document.getElementById("form2");
-  let emailInput = document.getElementById("email-log");
-  let passwordInput = document.getElementById("password-log");
-
-  async function login(username, password) {
-    try {
-      const response = await fetch('https://adventure-zone-database-production.up.railway.app/adventureZone/customer/signIn', {
-        headers: { 'Authorization': 'Basic ' + btoa(username + ':' + password) }
-      });
-
-      if (response.status === 202) {
-        const token = response.headers.get('Authorization');
-        Cookies.set('token', token, { expires: 30 });
-        window.location.href = "../index.html";
-        return await response.json();
-      } else {
-        console.log("invalid credentials");
-        return Promise.reject(await response.json());
-      }
-    } catch (error) {
-      console.log("unbale to make fetch request");
-      return Promise.reject(error);
-    }
-  }
-
-
-
-
-   // Function to validate the user is logged in or not.
-  function auth() {
-    if (!Cookies.get('token')) {
-      throw "Token not found";
-    }
-    return fetch('https://adventure-zone-database-production.up.railway.app/adventureZone/customer/signIn', {
-      method: 'POST',
-      body: Cookies.get('token')
-    })
-      .then(function (res) {
-        if (res.status === 202) {
-          return res.json();
-        }
-        return Promise.reject(res.json());
-      });
-  }
-
-
-
-
-  // Calling the login function
-  loginForm.addEventListener("submit", (event) => {
-    event.preventDefault(); // Prevent the form from submitting normally
-
-    const username = emailInput.value; // Get the value from the email input
-    const password = passwordInput.value; // Get the value from the password input
-
-    login(username, password)
-      .then((userData) => {
-        console.log(userData);
-      })
-      .catch((error) => {
-        console.log("Error:", error.message);
-      });
-  });
-
-
-
-</script>

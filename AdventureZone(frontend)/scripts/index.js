@@ -46,3 +46,57 @@ autoScrollHorizontally('.exploreAdv', 1.2, 30);
 
 
 
+const userDiv = document.getElementById('user');
+const hoverLogOutDiv = document.querySelector('.hoverLogOut');
+const logoutBtn = document.getElementById('logoutBtn');
+const registerBtn = document.getElementById('registerBtn');
+const loginBtn = document.getElementById('loginBtn');
+let upNavUser=document.querySelector("#upNav p");
+let userValue = JSON.parse(localStorage.getItem('user')) || "";
+
+if(userValue==""){
+    upNavUser.innerText="";
+}else{
+    upNavUser.innerText=userValue.username;
+}
+  
+
+let timeoutId;
+
+function showHoverLogOut() {
+    hoverLogOutDiv.style.display = 'block';
+}
+
+function hideHoverLogOut() {
+    timeoutId = setTimeout(() => {
+        hoverLogOutDiv.style.display = 'none';
+    }, 3000); // 200ms delay before hiding the .hoverLogOut div
+}
+
+userDiv.addEventListener('mouseover', showHoverLogOut);
+userDiv.addEventListener('mouseout', hideHoverLogOut);
+
+hoverLogOutDiv.addEventListener('mouseover', () => {
+    // If the user moves the mouse over the .hoverLogOut div, clear the timeout to prevent it from hiding
+    clearTimeout(timeoutId);
+    hoverLogOutDiv.style.display = 'block';
+});
+
+// hoverLogOutDiv.addEventListener('mouseout', hideHoverLogOut);
+
+// Click event for the logout button
+logoutBtn.addEventListener('click', () => {
+    // Replace this with your logout logic
+    localStorage.setItem('user', JSON.stringify(""));
+    window.location.href = "/AdventureZone(frontend)/index.html";
+});
+
+// Click event for the settings button
+registerBtn.addEventListener('click', () => {
+    // Replace this with your settings logic
+    window.location.href = "/AdventureZone(frontend)/html/signup&signIn.html";
+});
+loginBtn.addEventListener('click', () => {
+    // Replace this with your settings logic
+    window.location.href = "/AdventureZone(frontend)/html/signup&signIn.html";
+});
