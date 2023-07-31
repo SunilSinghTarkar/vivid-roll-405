@@ -176,141 +176,167 @@
 
 </html>
 <script src="/AdventureZone(frontend)/scripts/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 <script type="text/javascript">
 
     // let storedData = JSON.parse(localStorage.getItem("details")) || []
 
 
-    const signUpButton = document.getElementById('signUp');
-
-    const signInButton = document.getElementById('signIn');
-
-    const container = document.getElementById('container');
-
-
-    let signupForm = document.getElementById("form1");
-    let nameInp = document.getElementById("name");
-    let emailInp = document.getElementById("email");
-    let passwordInp = document.getElementById("password")
-    let mobileInp=document.getElementById("mobNumber")
-    let ageInp=document.getElementById("age")
-    let addressInp=document.getElementById("address")
+   //SignUp and signIn main form buttons
+  const signUpButton = document.getElementById('signUp');
+  const signInButton = document.getElementById('signIn');
+  const container = document.getElementById('container');
 
 
 
-    function generateRandomID(length) {
-  const characters = '0123456789';
-  let randomID = '';
+  // Panel swapping listner for signup and signIn
+  signUpButton.addEventListener('click', () => {
+    container.classList.add("right-panel-active");
+  });
+  signInButton.addEventListener('click', () => {
+    container.classList.remove("right-panel-active");
+  });
 
-  for (let i = 0; i < length; i++) {
-    const randomIndex = Math.floor(Math.random() * characters.length);
-    randomID += characters[randomIndex];
+
+ //             <!--  S I G N U P     C O D E    S T A R T' S    F R O M    H E R E -->
+
+
+  // SignUp form input values
+  let signupForm = document.getElementById("form1");
+  let nameInp = document.getElementById("name");
+  let emailInp = document.getElementById("email");
+  let passwordInp = document.getElementById("password")
+  let mobileInp = document.getElementById("mobNumber")
+  let ageInp = document.getElementById("age")
+  let addressInp = document.getElementById("address")
+
+
+
+
+// Random id generator for Abstract User class in java
+  function generateRandomID(length) {
+    const characters = '0123456789';
+    let randomID = '';
+
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      randomID += characters[randomIndex];
+    }
+
+    return randomID;
   }
 
-  return randomID;
-}
-    
-    const signUp = document.getElementById('button2');
-
-    signupForm.addEventListener("submit",(e)=>{
-        e.preventDefault();
-        addcustomer();
-    })
 
 
 
-async function addcustomer(){
-console.log("Click")
+  // Function to add new customer to the database using the signup form
+  const signUp = document.getElementById('button2');
+  signupForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    addcustomer();
+  })
+
+
+  async function addcustomer() {
+    console.log("Click")
     let obj = {
-    "userId":  generateRandomID(5),
-    "username": nameInp.value,
-     "password": passwordInp.value,
-    "address": addressInp.value,
-  "mobNumber": mobileInp.value,
-  "email": emailInp.value,
-  "createdDate":"" ,
-  "updatedDT": "",
-  "deleteDT": "",
-  "role": "USER",
-  "customerId": 0,
-  "age": ageInp.value,
-  "deleted": false
-      };
-    
-      let fetchedData = await fetch('http://localhost:8080/adventureZone/addCustomer', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(obj)
-      });
-    
-      if (fetchedData.ok) {
-        alert('Customer registered Successfully');
-        window.location.reload();
-      }
-}
+      "userId": generateRandomID(5),
+      "username": nameInp.value,
+      "password": passwordInp.value,
+      "address": addressInp.value,
+      "mobNumber": mobileInp.value,
+      "email": emailInp.value,
+      "createdDate": "",
+      "updatedDT": "",
+      "deleteDT": "",
+      "role": "USER",
+      "customerId": 0,
+      "age": ageInp.value,
+      "deleted": false
+    };
 
-
-
-signUpButton.addEventListener('click', () => {
-        container.classList.add("right-panel-active");
-    });
-    signInButton.addEventListener('click', () => {
-        container.classList.remove("right-panel-active");
-    });
-
-
-    let loginForm = document.getElementById("form2");
-let emailInput = document.getElementById("email-log");
-let passwordInput = document.getElementById("password-log");
-
-async function login(username, password) {
-  const url = `http://localhost:8080/adventureZone/customer/signIn/${username}/${password}`;
-
-  try {
-    const response = await fetch(url, {
+    let fetchedData = await fetch('https://adventure-zone-database-production.up.railway.app/adventureZone/addCustomer', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      body: JSON.stringify(obj)
     });
 
-    if (!response.ok) {
-      throw new Error('Login failed. Invalid username or password.');
+    if (fetchedData.ok) {
+      alert('Customer registered Successfully');
+      window.location.reload();
     }
-
-    const data = await response.json();
-    // Process the response data, such as saving tokens or user information
-
-    // Store the logged-in customer data in local storage
-    localStorage.setItem('loggedInCustomer', JSON.stringify(data));
-
-    console.log('Login successful:', data);
-window.location.href="../index.html";
-    // return data;
-  } catch (error) {
-    alert('Login error:', error.message);
-    throw error;
   }
-}
 
-loginForm.addEventListener("submit", (event) => {
-  event.preventDefault(); // Prevent the form from submitting normally
 
-  const username = emailInput.value; // Get the value from the email input
-  const password = passwordInput.value; // Get the value from the password input
+  //                      <!--  S I G N U I N    C O D E    S T A R T' S    F R O M    H E R E -->
 
-  login(username, password)
-    .then((userData) => {
-      // Handle successful login
-      console.log(userData);
+
+ // Function to login using the username and password and set the cookies of jwt token
+  let loginForm = document.getElementById("form2");
+  let emailInput = document.getElementById("email-log");
+  let passwordInput = document.getElementById("password-log");
+
+  async function login(username, password) {
+    try {
+      const response = await fetch('https://adventure-zone-database-production.up.railway.app/adventureZone/customer/signIn', {
+        headers: { 'Authorization': 'Basic ' + btoa(username + ':' + password) }
+      });
+
+      if (response.status === 202) {
+        const token = response.headers.get('Authorization');
+        Cookies.set('token', token, { expires: 30 });
+        window.location.href = "../index.html";
+        return await response.json();
+      } else {
+        console.log("invalid credentials");
+        return Promise.reject(await response.json());
+      }
+    } catch (error) {
+      console.log("unbale to make fetch request");
+      return Promise.reject(error);
+    }
+  }
+
+
+
+
+   // Function to validate the user is logged in or not.
+  function auth() {
+    if (!Cookies.get('token')) {
+      throw "Token not found";
+    }
+    return fetch('https://adventure-zone-database-production.up.railway.app/adventureZone/customer/signIn', {
+      method: 'POST',
+      body: Cookies.get('token')
     })
-    .catch((error) => {
-      // Handle login error
-      console.log("Error:", error.message);
-    });
-});
+      .then(function (res) {
+        if (res.status === 202) {
+          return res.json();
+        }
+        return Promise.reject(res.json());
+      });
+  }
+
+
+
+
+  // Calling the login function
+  loginForm.addEventListener("submit", (event) => {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    const username = emailInput.value; // Get the value from the email input
+    const password = passwordInput.value; // Get the value from the password input
+
+    login(username, password)
+      .then((userData) => {
+        console.log(userData);
+      })
+      .catch((error) => {
+        console.log("Error:", error.message);
+      });
+  });
 
 
 
