@@ -13,3 +13,18 @@ display: flex;
 max-width: 100px;
 align-items: center;
 }
+body #midAdmin{
+   
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+#ticketHistory{
+    width: 40%;
+    border: 1px solid grey;
+}
+#midAdmin #ticketForm{
+    all: unset;
+    width: 50vw;
+    padding: 20px;
+}

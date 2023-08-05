@@ -51,6 +51,7 @@ const hoverLogOutDiv = document.querySelector('.hoverLogOut');
 const logoutBtn = document.getElementById('logoutBtn');
 const registerBtn = document.getElementById('registerBtn');
 const loginBtn = document.getElementById('loginBtn');
+const profileBtn = document.getElementById('profileButton');
 let upNavUser=document.querySelector("#upNav p");
 let userValue = JSON.parse(localStorage.getItem('user')) || "";
 
@@ -99,4 +100,8 @@ registerBtn.addEventListener('click', () => {
 loginBtn.addEventListener('click', () => {
     // Replace this with your settings logic
     window.location.href = "/AdventureZone(frontend)/html/signup&signIn.html";
+});
+profileBtn.addEventListener('click', () => {
+    // Replace this with your settings logic
+    window.location.href = "/AdventureZone(frontend)/html/profile.html";
 });

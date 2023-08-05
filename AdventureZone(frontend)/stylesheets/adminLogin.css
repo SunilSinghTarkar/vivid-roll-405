@@ -1,0 +1,66 @@
+#topS{
+  padding-top: 100px;
+  text-align: center;
+  
+}
+.signin-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  transition: transform 0.3s ease;
+  margin: auto;
+  margin-bottom: 100px;
+  margin-top: 50px;
+}
+
+.signin-container:hover {
+  transform: translateY(-5px);
+}
+
+.signin-container h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.signin-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: box-shadow 0.3s ease;
+}
+
+.signin-container input:focus {
+  outline: none;
+  box-shadow: 0 0 5px #4CAF50;
+}
+
+.signin-container button {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.signin-container button:hover {
+  background-color: #45a049;
+}
+
+.error-message {
+  color: #FF4500;
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.signin-container:hover .error-message {
+  opacity: 1;
+}

@@ -6,14 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/AdventureZone(frontend)/stylesheets/index.css">
-    <link rel="stylesheet" href="/AdventureZone(frontend)/stylesheets/index.css">
-    <link rel="stylesheet" href="/AdventureZone(frontend)/stylesheets/customerSignIn.css">
+    <link rel="stylesheet" href="/AdventureZone(frontend)/stylesheets/adminLogin.css">
 </head>
 <body>
     <header>
         <div class="header-left">
             <div class="logo">
-               <a href="/AdventureZone(frontend)/index.html"><img src="/AdventureZone(frontend)/Images/adventureZone.png" alt=""></a> 
+               <a href="/AdventureZone(frontend)/index.html"><img src="/AdventureZone(frontend)/Images/adventureZoneBW.png" alt=""></a> 
             </div>
             <nav>
                 <ul>
@@ -64,28 +63,18 @@
         </div>
     </header>
 
-
 <div id="topS">
-    <h1>Welcome Admin Please Sign in</h1>
+    <h1>Welcome Admin</h1>
 </div>
-    <div id="mainSignIn">
-        
-        <div class="signInDiv">
-            <form action="" class="form">
-                <label>Email Id</label>
-                <input type="text" >
-                <label>Password</label>
-                <input type="text">
-                <br>
-                <input type="button" value="Login as Admin">
-            </form>
-        </div>
-        <div class="posterDiv">
-            <div>
-                <img src="/AdventureZone(frontend)/Images/signInPoster.jpg" alt="" srcset="">
-            </div>
-        </div>
-    </div>
+<div class="signin-container">
+    <h1>Sign In</h1>
+    <form id="signin-form">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Sign In</button>
+    </form>
+    <p class="error-message" id="error-message"></p>
+</div>
     
 
     <footer>
@@ -145,4 +134,5 @@
     </footer>
 </body>
 <script src="/AdventureZone(frontend)/scripts/index.js"></script>
+<script src="/AdventureZone(frontend)/scripts/adminSignIn.js"></script>
 </html>
